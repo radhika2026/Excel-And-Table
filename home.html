@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Excel</title>
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  />
+  <style media="screen">
+    body {
+      background-color: #cae4db
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1 class="text-center">UPLOAD EXCEL </h1>
+  <br>
+ <!--  SINGLE FILE -->
+<form action="/uploadfile" id = "post" enctype="multipart/form-data" method="POST"  class="text-center">
+  <h2> Select the excel sheet</h2>
+  <div class="form-group">
+   <input type="file" name="myFile" required class="form-control"/>
+   <button class="btn btn-danger btn-lg">
+       Upload excel File
+   </button>
+   <br>
+   <br>
+  </div>
+</form>
+</body>
+</html>

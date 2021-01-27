@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Table</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <style media="screen">
+      body {
+        background-color: #cae4db
+      }
+    </style>
+  </head>
+  <body>
+    <div class="table-responsive">
+      <br>
+      <div class="form-group">
+        <h1 align="center">Search by Name</h1>
+       <input type="text" name="" id= "myInput" required class="form-control" placeholder="search by names.." onkeyup= "searchFunc()"/>
+       <br>
+      </div>
+    </div>
+    <table class="table table-bordered table-striped" id = "myTable">
+      <tr>
+        <th>Name</th> <th>Roll Number</th><th>Class</th>
+      </tr>
+        <% for(var row in result){ %>
+          <tr>
+          <% for(var column in result[row]){ %>
+          <td><%=result[row][column] %></td>
+          <% } %>
+          </tr>
+        <% } %>
+    </table>
+  <script type="text/javascript">
+  const searchFunc = () =>{
+    let filter = document.getElementById('myInput').value.toUpperCase();
+    let myTable = document.getElementById('myTable');
+    let tr = myTable.getElementsByTagName('tr');
+    for(var i = 0; i < tr.length; i++){
+      let td = tr[i].getElementsByTagName('td')[0];
+      console.log("td",td)
+      if (td){
+        let textvalue = td.textContent || td.innerHTML;
+        if (textvalue.toUpperCase().indexOf(filter) > -1){
+          console.log(textvalue)
+          console.log(textvalue.toUpperCase().indexOf(filter))
+          tr[i].style.display = "";
+        }else{
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+  </script>
+  </body>
+</html>
